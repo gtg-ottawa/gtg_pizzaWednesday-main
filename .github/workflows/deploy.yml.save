@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+ame: Deploy to GitHub Pages
 
 on:
   push:
@@ -12,8 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
-
+  cancel-in-progress: tr
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: 'npm'
 
       - run: |
           if [ -f package-lock.json ]; then
@@ -32,19 +31,16 @@ jobs:
             npm install
           fi
 
-      - uses: actions/configure-pages@v5
-
-      # Build with your form URL injected (edit to your live viewform link)
       - run: npm run build
         env:
-          VITE_FORM_URL: https://docs.google.com/forms/d/e/1FAIpQLSdORzmzExK0OCnY8RXFQAUQxm5MPEJ6Z_GeLm2oDGKQT-zrwg/viewform
+          VITE_FORM_URL: https://docs.google.com/forms/d/e/1FAIpQLSdORzmzExK0OCnY8RXFQAUQxm5MPEJ6Z_GeLm2oDGKQT-zrwg/viewform?usp=dialog
+          VITE_VIDEO_URL: https://www.youtube.com/watch?v=04tup1vpVgE
 
-      # SPA fallback (GH Pages routing)
       - run: cp dist/index.html dist/404.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: 'dist'
 
   deploy:
     needs: build
@@ -55,4 +51,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-
