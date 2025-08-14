@@ -84,7 +84,7 @@ export default function App() {
         <section className="hero fade-in-up">
           <h1 className="title">Pizza Wednesday — GrowToGather</h1>
           <p className="subtitle">
-            Meet new friends, share pizza, and enjoy board games every Wednesday in Ottawa.
+            Meet new friends, share pizza, and enjoy board games in Ottawa.
           </p>
           <div className="divider" />
         </section>
